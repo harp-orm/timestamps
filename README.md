@@ -11,6 +11,52 @@ Automatic createdAt and updatedAt properties
 Usage
 -----
 
+You must add __createdAt__ and __updatedAt__ DATETIME / TIMESTAMP fields to your database table.
+
+Then just add the triats to the Repo and Model classes:
+
+```php
+use Harp\Harp\AbstractModel;
+use Harp\Timestamps\TimestampsModelTrait;
+
+class User extends AbstractModel
+{
+    use TimestampsModelTrait;
+
+    // ...
+}
+```
+
+```php
+use Harp\Harp\AbstractRepo;
+use Harp\Timestamps\TimestampsRepoTrait;
+
+class User extends AbstractRepo
+{
+    use TimestampsRepoTrait;
+
+    function initialize()
+    {
+        // Adds events to populate the properties
+        $this->initializeTimestamps();
+    }
+}
+```
+
+Interface
+---------
+
+```php
+echo $user->createdAt; // 2014-01-01 00:00:00
+echo $user->updatedAt; // 2014-01-01 00:00:00
+
+echo $user->getCreatedAt(); // DateTime object
+$user->setCreatedAt(new DateTime());
+
+echo $user->getUpdatedAt(); // DateTime object
+$user->setUpdatedAt(new DateTime());
+```
+
 License
 -------
 
