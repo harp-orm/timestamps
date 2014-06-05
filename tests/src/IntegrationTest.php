@@ -39,5 +39,11 @@ class IntegrationTest extends AbstractTestCase
         Repo\User::get()->save($model);
 
         $this->assertEquals('2014-02-20 22:10:00', $model->updatedAt);
+
+        $this->assertQueries([
+            'INSERT INTO User (id, name, createdAt, updatedAt) VALUES (NULL, NULL, "2014-02-20 22:10:00", "2014-02-20 22:10:00")',
+            'SELECT User.* FROM User WHERE (id = 1) LIMIT 1',
+            'UPDATE User SET name = "other name", updatedAt = "2014-02-20 22:10:00" WHERE (id = 1)',
+        ]);
     }
 }
