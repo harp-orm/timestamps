@@ -5,6 +5,12 @@ php:
   - 5.5
   - hhvm
 
+
+notifications:
+  email: false
+  slack:
+    secure: VUEPodEzNqIxw0JmOXeVmCi9YXH1/wL7airhwAyF9p7JMJ0MqQhaDOlY1siZaEln+Ngd7TGRVOt8UJMu1qjT7pPlqZJ+YliCDI2FoF1hBMz9Qi4MA+rFbLqrMRpvhoCj5tq27igiFi8hAJlfwqtKvT9BxA6O+rjOfNI6fejqcow=
+
 before_install:
   - composer selfupdate
 
