@@ -4,6 +4,8 @@ namespace Harp\Timestamps\Test;
 
 use DateTime;
 use Harp\Core\Repo\Event;
+use Harp\Timestamps\Test\Model;
+use Harp\Timestamps\Test\Repo;
 
 /**
  * @coversDefaultClass Harp\Timestamps\TimestampsRepoTrait
@@ -20,6 +22,7 @@ class TimestampsRepoTraitTest extends AbstractTestCase
     public function testInitializeTimestamps()
     {
         $repo = new Repo\User(__NAMESPACE__.'\Model\User');
+        $repo->setCurrentDate('2014-02-20 22:10:00');
 
         $model = new Model\User();
 
@@ -29,7 +32,17 @@ class TimestampsRepoTraitTest extends AbstractTestCase
         $repo->getEventListeners()->dispatchBeforeEvent($model, Event::INSERT);
         $repo->getEventListeners()->dispatchBeforeEvent($model, Event::SAVE);
 
-        $this->assertNotNull($model->createdAt);
-        $this->assertNotNull($model->updatedAt);
+        $this->assertEquals('2014-02-20 22:10:00', $model->createdAt);
+        $this->assertEquals('2014-02-20 22:10:00', $model->updatedAt);
+    }
+
+    /**
+     * @covers ::getCurrentDate
+     */
+    public function testGetCurrentDate()
+    {
+        $date = Repo\User::get()->getCurrentDate();
+
+        $this->assertGreaterThanOrEqual(time(), strtotime($date));
     }
 }

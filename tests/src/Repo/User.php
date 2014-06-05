@@ -12,7 +12,9 @@ use Harp\Timestamps\TimestampsRepoTrait;
  */
 class User extends AbstractRepo
 {
-    use TimestampsRepoTrait;
+    use TimestampsRepoTrait {
+        TimestampsRepoTrait::getCurrentDate as getTraitCurrentDate;
+    }
 
     private static $instance;
 
@@ -26,6 +28,20 @@ class User extends AbstractRepo
         }
 
         return self::$instance;
+    }
+
+    private $currentDate;
+
+    public function setCurrentDate($date)
+    {
+        $this->currentDate = $date;
+
+        return $this;
+    }
+
+    public function getCurrentDate()
+    {
+        return $this->currentDate ?: $this->getTraitCurrentDate();
     }
 
     public function initialize()

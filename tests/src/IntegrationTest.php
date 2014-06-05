@@ -19,23 +19,25 @@ class IntegrationTest extends AbstractTestCase
      */
     public function testIntegration()
     {
-        $model = new Model\User();
+        Repo\User::get()->setCurrentDate('2014-02-20 22:10:00');
 
-        $this->assertNull($model->createdAt);
-        $this->assertNull($model->updatedAt);
+        $new = new Model\User();
 
-        Repo\User::get()->save($model);
+        $this->assertNull($new->createdAt);
+        $this->assertNull($new->updatedAt);
 
-        $this->assertNotNull($model->createdAt);
-        $this->assertNotNull($model->updatedAt);
+        Repo\User::get()->save($new);
+
+        $this->assertEquals('2014-02-20 22:10:00', $new->createdAt);
+        $this->assertEquals('2014-02-20 22:10:00', $new->updatedAt);
 
         $model = Repo\User::get()->find(1);
         $model->name = 'other name';
 
-        $updatedAt = $model->getUpdatedAt();
+        $this->assertEquals('2012-02-20 22:10:00', $model->updatedAt);
 
         Repo\User::get()->save($model);
 
-        $this->assertTrue($model->getUpdatedAt() > $updatedAt);
+        $this->assertEquals('2014-02-20 22:10:00', $model->updatedAt);
     }
 }

@@ -43,6 +43,7 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->beginTransaction();
 
         Repo\User::get()->clear();
+        Repo\User::get()->setCurrentDate(null);
     }
 
     public function tearDown()
