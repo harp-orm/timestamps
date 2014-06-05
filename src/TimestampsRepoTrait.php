@@ -11,14 +11,21 @@ use Harp\Harp\AbstractModel;
  */
 trait TimestampsRepoTrait
 {
+    public function getCurrentDate()
+    {
+        return date('Y-m-d H:i:s');
+    }
+
     public function initializeTimestamps()
     {
+        $self = $this;
+
         $this
-            ->addEventBeforeSave(function (AbstractModel $model) {
-                $model->updatedAt = date('Y-m-d H:i:s');
+            ->addEventBeforeSave(function (AbstractModel $model) use ($self) {
+                $model->updatedAt = $self->getCurrentDate();
             })
-            ->addEventBeforeInsert(function (AbstractModel $model) {
-                $model->createdAt = date('Y-m-d H:i:s');
+            ->addEventBeforeInsert(function (AbstractModel $model) use ($self) {
+                $model->createdAt = $self->getCurrentDate();
             });
     }
 }
