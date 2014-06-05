@@ -23,7 +23,7 @@ class TimestampsModelTraitTest extends AbstractTestCase
 
         $date = $user->getCreatedAt();
 
-        $this->assertSame(1171963391, $date->getTimestamp());
+        $this->assertSame(1171970591, $date->getTimestamp());
 
         $user->setCreatedAt(new DateTime('2012-01-01'));
 
@@ -40,7 +40,7 @@ class TimestampsModelTraitTest extends AbstractTestCase
 
         $date = $user->getUpdatedAt();
 
-        $this->assertSame(1329768600, $date->getTimestamp());
+        $this->assertSame(1329775800, $date->getTimestamp());
 
         $user->setUpdatedAt(new DateTime('2012-01-01'));
 

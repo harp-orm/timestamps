@@ -30,6 +30,8 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
     {
         parent::setUp();
 
+        date_default_timezone_set('UTC');
+
         $this->logger = new TestLogger();
 
         DB::setConfig('default', array(
