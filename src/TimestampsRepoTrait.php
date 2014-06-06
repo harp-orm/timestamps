@@ -20,7 +20,7 @@ trait TimestampsRepoTrait
     {
         $self = $this;
 
-        $this
+        return $this
             ->addEventBeforeSave(function (AbstractModel $model) use ($self) {
                 $model->updatedAt = $self->getCurrentDate();
             })
