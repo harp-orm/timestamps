@@ -16,18 +16,9 @@ class User extends AbstractRepo
         TimestampsRepoTrait::getCurrentDate as getTraitCurrentDate;
     }
 
-    private static $instance;
-
-    /**
-     * @return User
-     */
-    public static function get()
+    public static function newInstance()
     {
-        if (self::$instance === null) {
-            self::$instance = new User('Harp\Timestamps\Test\Model\User');
-        }
-
-        return self::$instance;
+        return new User('Harp\Timestamps\Test\Model\User');
     }
 
     private $currentDate;

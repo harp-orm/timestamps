@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/core.git",
-                "reference": "fec790ced5f028fd8a4edbe2507e0f7f77423522"
+                "reference": "b9e54f78d02057eb184f3c83095be249370e16a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/core/zipball/fec790ced5f028fd8a4edbe2507e0f7f77423522",
-                "reference": "fec790ced5f028fd8a4edbe2507e0f7f77423522",
+                "url": "https://api.github.com/repos/harp-orm/core/zipball/b9e54f78d02057eb184f3c83095be249370e16a1",
+                "reference": "b9e54f78d02057eb184f3c83095be249370e16a1",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 }
             ],
             "description": "DataMapper style ORM Core Componenets",
-            "time": "2014-06-05 13:46:59"
+            "time": "2014-06-06 11:11:40"
         },
         {
             "name": "harp-orm/harp",
@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/harp-orm/harp.git",
-                "reference": "9951ab190037279c49f08bc84209a2009d8f35e7"
+                "reference": "c12d20c83dfb027c53489d975c34450397f4d179"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/harp-orm/harp/zipball/9951ab190037279c49f08bc84209a2009d8f35e7",
-                "reference": "9951ab190037279c49f08bc84209a2009d8f35e7",
+                "url": "https://api.github.com/repos/harp-orm/harp/zipball/c12d20c83dfb027c53489d975c34450397f4d179",
+                "reference": "c12d20c83dfb027c53489d975c34450397f4d179",
                 "shasum": ""
             },
             "require": {
@@ -89,7 +89,7 @@
                 }
             ],
             "description": "Light and Flexible ORM without magic",
-            "time": "2014-06-04 20:17:21"
+            "time": "2014-06-06 13:05:15"
         },
         {
             "name": "harp-orm/query",
