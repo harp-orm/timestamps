@@ -31,6 +31,19 @@ class TimestampsModelTraitTest extends AbstractTestCase
     }
 
     /**
+     * @covers ::getCreatedAt
+     */
+    public function testCreatedAtNull()
+    {
+        $user = Repo\User::get()->find(1);
+
+        $user->createdAt = null;
+
+        $this->assertInstanceOf('DateTime', $user->getCreatedAt());
+        $this->assertLessThan(new DateTime('2012-01-01'), $user->getCreatedAt());
+    }
+
+    /**
      * @covers ::getUpdatedAt
      * @covers ::setUpdatedAt
      */
@@ -46,4 +59,18 @@ class TimestampsModelTraitTest extends AbstractTestCase
 
         $this->assertSame('2012-01-01 00:00:00', $user->updatedAt);
     }
+
+    /**
+     * @covers ::getUpdatedAt
+     */
+    public function testUpdatedAtNull()
+    {
+        $user = Repo\User::get()->find(1);
+
+        $user->updatedAt = null;
+
+        $this->assertInstanceOf('DateTime', $user->getUpdatedAt());
+        $this->assertLessThan(new DateTime('2012-01-01'), $user->getUpdatedAt());
+    }
+
 }

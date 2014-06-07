@@ -26,7 +26,7 @@ trait TimestampsModelTrait
      */
     public function getCreatedAt()
     {
-        return new DateTime($this->createdAt);
+        return new DateTime($this->createdAt ?: '0000-01-01');
     }
 
     /**
@@ -44,7 +44,7 @@ trait TimestampsModelTrait
      */
     public function getUpdatedAt()
     {
-        return new DateTime($this->updatedAt);
+        return new DateTime($this->updatedAt ?: '0000-01-01');
     }
 
     /**
