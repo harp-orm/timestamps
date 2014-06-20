@@ -3,7 +3,6 @@
 namespace Harp\Timestamps;
 
 use Harp\Harp\AbstractModel;
-use Closure;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -17,9 +16,9 @@ trait TimestampsRepoTrait
         return date('Y-m-d H:i:s');
     }
 
-    abstract public function addEventBeforeSave(Closure $closure);
+    abstract public function addEventBeforeSave($callback);
 
-    abstract public function addEventBeforeInsert(Closure $closure);
+    abstract public function addEventBeforeInsert($callback);
 
     public function initializeTimestamps()
     {
