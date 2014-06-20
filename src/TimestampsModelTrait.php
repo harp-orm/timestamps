@@ -52,7 +52,7 @@ trait TimestampsModelTrait
      */
     public function setUpdatedAt(DateTime $time)
     {
-        $this->updatedAt = $time->format('Y-m-d H:i:s');;
+        $this->updatedAt = $time->format('Y-m-d H:i:s');
 
         return $this;
     }
