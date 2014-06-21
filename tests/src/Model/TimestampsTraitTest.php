@@ -9,7 +9,7 @@ use Harp\Timestamps\Test\Repo;
 use DateTime;
 
 /**
- * @coversDefaultClass Harp\Timestamps\TimestampsModelTrait
+ * @coversDefaultClass Harp\Timestamps\Model\TimestampsTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
