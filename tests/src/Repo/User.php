@@ -4,7 +4,7 @@ namespace Harp\Timestamps\Test\Repo;
 
 use Harp\Harp\AbstractRepo;
 use Harp\Timestamps\Test\Model;
-use Harp\Timestamps\TimestampsRepoTrait;
+use Harp\Timestamps\Repo\TimestampsTrait;
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
@@ -12,8 +12,8 @@ use Harp\Timestamps\TimestampsRepoTrait;
  */
 class User extends AbstractRepo
 {
-    use TimestampsRepoTrait {
-        TimestampsRepoTrait::getCurrentDate as getTraitCurrentDate;
+    use TimestampsTrait {
+        TimestampsTrait::getCurrentDate as getTraitCurrentDate;
     }
 
     public static function newInstance()

@@ -1,6 +1,10 @@
 <?php
 
-namespace Harp\Timestamps\Test;
+namespace Harp\Timestamps\Test\Model;
+
+use Harp\Timestamps\Test\AbstractTestCase;
+use Harp\Timestamps\Test\Model;
+use Harp\Timestamps\Test\Repo;
 
 use DateTime;
 
@@ -11,7 +15,7 @@ use DateTime;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class TimestampsModelTraitTest extends AbstractTestCase
+class TimestampsTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::getCreatedAt

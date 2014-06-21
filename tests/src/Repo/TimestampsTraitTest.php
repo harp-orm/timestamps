@@ -1,11 +1,12 @@
 <?php
 
-namespace Harp\Timestamps\Test;
+namespace Harp\Timestamps\Test\Repo;
 
-use DateTime;
+use Harp\Timestamps\Test\AbstractTestCase;
 use Harp\Core\Repo\Event;
 use Harp\Timestamps\Test\Model;
 use Harp\Timestamps\Test\Repo;
+use DateTime;
 
 /**
  * @coversDefaultClass Harp\Timestamps\TimestampsRepoTrait
@@ -14,14 +15,14 @@ use Harp\Timestamps\Test\Repo;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class TimestampsRepoTraitTest extends AbstractTestCase
+class TimestampsTraitTest extends AbstractTestCase
 {
     /**
      * @covers ::initializeTimestamps
      */
     public function testInitializeTimestamps()
     {
-        $repo = new Repo\User(__NAMESPACE__.'\Model\User');
+        $repo = new Repo\User('Harp\Timestamps\Test\Model\User');
         $repo->setCurrentDate('2014-02-20 22:10:00');
 
         $model = new Model\User();

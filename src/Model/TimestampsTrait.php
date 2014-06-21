@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\Timestamps;
+namespace Harp\Timestamps\Model;
 
 use DateTime;
 
@@ -9,7 +9,7 @@ use DateTime;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-trait TimestampsModelTrait
+trait TimestampsTrait
 {
     /**
      * @var string

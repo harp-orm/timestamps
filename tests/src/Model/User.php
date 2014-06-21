@@ -4,7 +4,7 @@ namespace Harp\Timestamps\Test\Model;
 
 use Harp\Harp\AbstractModel;
 use Harp\Timestamps\Test\Repo;
-use Harp\Timestamps\TimestampsModelTrait;
+use Harp\Timestamps\Model\TimestampsTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -13,7 +13,7 @@ use Harp\Timestamps\TimestampsModelTrait;
  */
 class User extends AbstractModel
 {
-    use TimestampsModelTrait;
+    use TimestampsTrait;
 
     /**
      * @return Repo\User
