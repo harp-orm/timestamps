@@ -3,6 +3,7 @@
 namespace Harp\Timestamps;
 
 use Harp\Harp\AbstractModel;
+use Harp\Core\Repo\Event;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -16,19 +17,17 @@ trait TimestampsRepoTrait
         return date('Y-m-d H:i:s');
     }
 
-    abstract public function addEventBeforeSave($callback);
-
-    abstract public function addEventBeforeInsert($callback);
+    abstract public function addEventBefore($callback);
 
     public function initializeTimestamps()
     {
         $self = $this;
 
         return $this
-            ->addEventBeforeSave(function (AbstractModel $model) use ($self) {
+            ->addEventBefore(Event::SAVE, function ($model) use ($self) {
                 $model->updatedAt = $self->getCurrentDate();
             })
-            ->addEventBeforeInsert(function (AbstractModel $model) use ($self) {
+            ->addEventBefore(Event::INSERT, function ($model) use ($self) {
                 $model->createdAt = $self->getCurrentDate();
             });
     }
