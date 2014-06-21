@@ -17,7 +17,11 @@ trait TimestampsRepoTrait
         return date('Y-m-d H:i:s');
     }
 
-    abstract public function addEventBefore($callback);
+    /**
+     * @param int                   $event
+     * @param \Closure|object|array $callback
+     */
+    abstract public function addEventBefore($event, $callback);
 
     public function initializeTimestamps()
     {
