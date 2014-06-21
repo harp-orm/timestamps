@@ -17,7 +17,7 @@ Then just add the triats to the Repo and Model classes:
 
 ```php
 use Harp\Harp\AbstractModel;
-use Harp\Timestamps\TimestampsModelTrait;
+use Harp\Timestamps\Model\TimestampsTrait;
 
 class User extends AbstractModel
 {
@@ -29,7 +29,7 @@ class User extends AbstractModel
 
 ```php
 use Harp\Harp\AbstractRepo;
-use Harp\Timestamps\TimestampsRepoTrait;
+use Harp\Timestamps\Repo\TimestampsTrait;
 
 class User extends AbstractRepo
 {
