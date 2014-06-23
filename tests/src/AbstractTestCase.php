@@ -34,10 +34,10 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
 
         $this->logger = new TestLogger();
 
-        DB::setConfig('default', array(
+        DB::setConfig([
             'dsn' => 'mysql:dbname=harp-orm/timestamps;host=127.0.0.1',
             'username' => 'root',
-        ));
+        ]);
 
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
