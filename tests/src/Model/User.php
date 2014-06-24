@@ -3,7 +3,6 @@
 namespace Harp\Timestamps\Test\Model;
 
 use Harp\Harp\AbstractModel;
-use Harp\Timestamps\Test\Repo;
 use Harp\Timestamps\Model\TimestampsTrait;
 
 /**
@@ -13,15 +12,9 @@ use Harp\Timestamps\Model\TimestampsTrait;
  */
 class User extends AbstractModel
 {
-    use TimestampsTrait;
+    const REPO = 'Harp\Timestamps\Test\Repo\User';
 
-    /**
-     * @return Repo\User
-     */
-    public function getRepo()
-    {
-        return Repo\User::get();
-    }
+    use TimestampsTrait;
 
     public $id;
     public $name;

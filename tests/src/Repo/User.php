@@ -16,11 +16,6 @@ class User extends AbstractRepo
         TimestampsTrait::getCurrentDate as getTraitCurrentDate;
     }
 
-    public static function newInstance()
-    {
-        return new User('Harp\Timestamps\Test\Model\User');
-    }
-
     private $currentDate;
 
     public function setCurrentDate($date)
@@ -37,6 +32,8 @@ class User extends AbstractRepo
 
     public function initialize()
     {
-        $this->initializeTimestamps();
+        $this
+            ->setModelClass('Harp\Timestamps\Test\Model\User')
+            ->initializeTimestamps();
     }
 }

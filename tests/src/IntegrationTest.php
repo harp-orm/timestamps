@@ -26,17 +26,17 @@ class IntegrationTest extends AbstractTestCase
         $this->assertNull($new->createdAt);
         $this->assertNull($new->updatedAt);
 
-        Repo\User::get()->save($new);
+        Model\User::save($new);
 
         $this->assertEquals('2014-02-20 22:10:00', $new->createdAt);
         $this->assertEquals('2014-02-20 22:10:00', $new->updatedAt);
 
-        $model = Repo\User::get()->find(1);
+        $model = Model\User::find(1);
         $model->name = 'other name';
 
         $this->assertEquals('2012-02-20 22:10:00', $model->updatedAt);
 
-        Repo\User::get()->save($model);
+        Model\User::save($model);
 
         $this->assertEquals('2014-02-20 22:10:00', $model->updatedAt);
 
