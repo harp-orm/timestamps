@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\Timestamps\Repo;
+namespace Harp\Timestamps;
 
 use Harp\Harp\AbstractModel;
 use Harp\Core\Repo\Event;
@@ -10,7 +10,7 @@ use Harp\Core\Repo\Event;
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-trait TimestampsTrait
+trait TimestampsRepoTrait
 {
     public function getCurrentDate()
     {

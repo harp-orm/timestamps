@@ -1,15 +1,11 @@
 <?php
 
-namespace Harp\Timestamps\Test\Model;
-
-use Harp\Timestamps\Test\AbstractTestCase;
-use Harp\Timestamps\Test\Model;
-use Harp\Timestamps\Test\Repo;
+namespace Harp\Timestamps\Test;
 
 use DateTime;
 
 /**
- * @coversDefaultClass Harp\Timestamps\Model\TimestampsTrait
+ * @coversDefaultClass Harp\Timestamps\TimestampsTrait
  *
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
@@ -23,7 +19,7 @@ class TimestampsTraitTest extends AbstractTestCase
      */
     public function testCreatedAt()
     {
-        $user = Repo\User::get()->find(1);
+        $user = User::find(1);
 
         $date = $user->getCreatedAt();
 
@@ -39,7 +35,7 @@ class TimestampsTraitTest extends AbstractTestCase
      */
     public function testCreatedAtNull()
     {
-        $user = Repo\User::get()->find(1);
+        $user = User::find(1);
 
         $user->createdAt = null;
 
@@ -53,7 +49,7 @@ class TimestampsTraitTest extends AbstractTestCase
      */
     public function testUpdatedAt()
     {
-        $user = Repo\User::get()->find(1);
+        $user = User::find(1);
 
         $date = $user->getUpdatedAt();
 
@@ -69,7 +65,7 @@ class TimestampsTraitTest extends AbstractTestCase
      */
     public function testUpdatedAtNull()
     {
-        $user = Repo\User::get()->find(1);
+        $user = User::find(1);
 
         $user->updatedAt = null;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Harp\Timestamps\Test\Model;
+namespace Harp\Timestamps\Test;
 
 use Harp\Harp\AbstractModel;
-use Harp\Timestamps\Model\TimestampsTrait;
+use Harp\Timestamps\TimestampsTrait;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -12,7 +12,7 @@ use Harp\Timestamps\Model\TimestampsTrait;
  */
 class User extends AbstractModel
 {
-    const REPO = 'Harp\Timestamps\Test\Repo\User';
+    const REPO = 'Harp\Timestamps\Test\UserRepo';
 
     use TimestampsTrait;
 

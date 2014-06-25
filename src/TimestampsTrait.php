@@ -1,6 +1,6 @@
 <?php
 
-namespace Harp\Timestamps\Model;
+namespace Harp\Timestamps;
 
 use DateTime;
 

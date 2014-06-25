@@ -1,19 +1,18 @@
 <?php
 
-namespace Harp\Timestamps\Test\Repo;
+namespace Harp\Timestamps\Test;
 
 use Harp\Harp\AbstractRepo;
-use Harp\Timestamps\Test\Model;
-use Harp\Timestamps\Repo\TimestampsTrait;
+use Harp\Timestamps\TimestampsRepoTrait;
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
  * @copyright 2014, Clippings Ltd.
  * @license   http://spdx.org/licenses/BSD-3-Clause
  */
-class User extends AbstractRepo
+class UserRepo extends AbstractRepo
 {
-    use TimestampsTrait {
-        TimestampsTrait::getCurrentDate as getTraitCurrentDate;
+    use TimestampsRepoTrait {
+        TimestampsRepoTrait::getCurrentDate as getTraitCurrentDate;
     }
 
     private $currentDate;
@@ -33,7 +32,7 @@ class User extends AbstractRepo
     public function initialize()
     {
         $this
-            ->setModelClass('Harp\Timestamps\Test\Model\User')
+            ->setModelClass('Harp\Timestamps\Test\User')
             ->initializeTimestamps();
     }
 }

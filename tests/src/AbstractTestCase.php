@@ -4,7 +4,6 @@ namespace Harp\Timestamps\Test;
 
 use Harp\Query\DB;
 use PHPUnit_Framework_TestCase;
-use Harp\Timestamps\Test\Repo;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -42,8 +41,8 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
 
-        Repo\User::get()->clear();
-        Repo\User::get()->setCurrentDate(null);
+        UserRepo::get()->clear();
+        UserRepo::get()->setCurrentDate(null);
     }
 
     public function tearDown()
