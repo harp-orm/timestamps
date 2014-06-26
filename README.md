@@ -11,17 +11,15 @@ Automatic createdAt and updatedAt properties
 Usage
 -----
 
-You must add __createdAt__ and __updatedAt__ DATETIME / TIMESTAMP fields to your database table.
-
-Then just add the triats to the Repo and Model classes:
+You must the triats to the Repo and Model classes:
 
 ```php
 use Harp\Harp\AbstractModel;
-use Harp\Timestamps\Model\TimestampsTrait;
+use Harp\Timestamps\TimestampsTrait;
 
 class User extends AbstractModel
 {
-    use TimestampsModelTrait;
+    use TimestampsTrait;
 
     // ...
 }
@@ -29,9 +27,9 @@ class User extends AbstractModel
 
 ```php
 use Harp\Harp\AbstractRepo;
-use Harp\Timestamps\Repo\TimestampsTrait;
+use Harp\Timestamps\TimestampsRepoTrait;
 
-class User extends AbstractRepo
+class UserRepo extends AbstractRepo
 {
     use TimestampsRepoTrait;
 
@@ -41,6 +39,20 @@ class User extends AbstractRepo
         $this->initializeTimestamps();
     }
 }
+```
+
+__Database Table:__
+
+```
+┌─────────────────────────┐
+│ Table: Category         │
+├─────────────┬───────────┤
+│ id          │ ingeter   │
+│ name        │ string    │
+│ createdAt*  │ timestamp │
+│ updatedAt*  │ timestamp │
+└─────────────┴───────────┘
+* Required fields
 ```
 
 Interface
