@@ -21,22 +21,10 @@ class User extends AbstractModel
 {
     use TimestampsTrait;
 
-    // ...
-}
-```
-
-```php
-use Harp\Harp\AbstractRepo;
-use Harp\Timestamps\TimestampsRepoTrait;
-
-class UserRepo extends AbstractRepo
-{
-    use TimestampsRepoTrait;
-
-    function initialize()
+    public static function initialize($repo)
     {
         // Adds events to populate the properties
-        $this->initializeTimestamps();
+        TimestampsTrait::initialize($repo);
     }
 }
 ```
@@ -67,6 +55,20 @@ $user->setCreatedAt(new DateTime());
 
 echo $user->getUpdatedAt(); // DateTime object
 $user->setUpdatedAt(new DateTime());
+```
+
+Testing
+-------
+
+You can set the "current date" that the the trait uses with the "TimestampsTrait::setCurrentDate($date)" method.
+
+```php
+TimestampsTrait::setCurrentDate('2014-03-01 10:00:00');
+
+$user = new User();
+
+echo $user->createdAt; // 2014-03-01 10:00:00
+echo $user->updatedAt; // 2014-03-01 10:00:00
 ```
 
 License

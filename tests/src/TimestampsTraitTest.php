@@ -3,6 +3,8 @@
 namespace Harp\Timestamps\Test;
 
 use DateTime;
+use Harp\Core\Repo\Event;
+use Harp\Timestamps\TimestampsTrait;
 
 /**
  * @coversDefaultClass Harp\Timestamps\TimestampsTrait
@@ -13,6 +15,43 @@ use DateTime;
  */
 class TimestampsTraitTest extends AbstractTestCase
 {
+    /**
+     * @covers ::initialize
+     */
+    public function testInitialize()
+    {
+        $repo = User::getRepo();
+        TimestampsTrait::setCurrentDate('2014-02-20 22:10:00');
+
+        $model = new User();
+
+        $this->assertTrue($repo->getEventListeners()->hasBeforeEvent(Event::INSERT));
+        $this->assertTrue($repo->getEventListeners()->hasBeforeEvent(Event::SAVE));
+
+        $repo->getEventListeners()->dispatchBeforeEvent($model, Event::INSERT);
+        $repo->getEventListeners()->dispatchBeforeEvent($model, Event::SAVE);
+
+        $this->assertEquals('2014-02-20 22:10:00', $model->createdAt);
+        $this->assertEquals('2014-02-20 22:10:00', $model->updatedAt);
+    }
+
+    /**
+     * @covers ::getCurrentDate
+     * @covers ::setCurrentDate
+     */
+    public function testGetSetCurrentDate()
+    {
+        $date = TimestampsTrait::getCurrentDate();
+
+        $this->assertGreaterThanOrEqual(time(), strtotime($date));
+
+        TimestampsTrait::setCurrentDate('2014-02-20 22:10:00');
+
+        $date = TimestampsTrait::getCurrentDate();
+
+        $this->assertSame('2014-02-20 22:10:00', $date);
+    }
+
     /**
      * @covers ::getCreatedAt
      * @covers ::setCreatedAt

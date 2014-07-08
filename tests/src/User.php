@@ -12,9 +12,12 @@ use Harp\Timestamps\TimestampsTrait;
  */
 class User extends AbstractModel
 {
-    const REPO = 'Harp\Timestamps\Test\UserRepo';
-
     use TimestampsTrait;
+
+    public static function initialize($repo)
+    {
+        TimestampsTrait::initialize($repo);
+    }
 
     public $id;
     public $name;

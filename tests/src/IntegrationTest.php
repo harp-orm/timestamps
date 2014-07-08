@@ -4,6 +4,7 @@ namespace Harp\Timestamps\Test;
 
 use DateTime;
 use Harp\Core\Repo\Event;
+use Harp\Timestamps\TimestampsTrait;
 
 /**
  * @coversDefaultClass Harp\Timestamps\TimestampsModelTrait
@@ -19,7 +20,7 @@ class IntegrationTest extends AbstractTestCase
      */
     public function testIntegration()
     {
-        UserRepo::get()->setCurrentDate('2014-02-20 22:10:00');
+        TimestampsTrait::setCurrentDate('2014-02-20 22:10:00');
 
         $new = new User();
 

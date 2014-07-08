@@ -3,6 +3,8 @@
 namespace Harp\Timestamps;
 
 use DateTime;
+use Harp\Harp\Repo;
+use Harp\Core\Repo\Event;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -11,6 +13,29 @@ use DateTime;
  */
 trait TimestampsTrait
 {
+    private static $currentDate;
+
+    public static function setCurrentDate($date)
+    {
+        self::$currentDate = $date;
+    }
+
+    public static function getCurrentDate()
+    {
+        return self::$currentDate ?: date('Y-m-d H:i:s');
+    }
+
+    public static function initialize(Repo $repo)
+    {
+        $repo
+            ->addEventBefore(Event::SAVE, function ($model) {
+                $model->updatedAt = self::getCurrentDate();
+            })
+            ->addEventBefore(Event::INSERT, function ($model) {
+                $model->createdAt = self::getCurrentDate();
+            });
+    }
+
     /**
      * @var string
      */

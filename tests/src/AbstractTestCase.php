@@ -3,6 +3,8 @@
 namespace Harp\Timestamps\Test;
 
 use Harp\Query\DB;
+use Harp\Core\Repo\Container;
+use Harp\Timestamps\TimestampsTrait;
 use PHPUnit_Framework_TestCase;
 
 /**
@@ -41,8 +43,8 @@ abstract class AbstractTestCase extends PHPUnit_Framework_TestCase {
         DB::get()->setLogger($this->logger);
         DB::get()->beginTransaction();
 
-        UserRepo::get()->clear();
-        UserRepo::get()->setCurrentDate(null);
+        Container::clear();
+        TimestampsTrait::setCurrentDate(null);
     }
 
     public function tearDown()
