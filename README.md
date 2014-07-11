@@ -11,7 +11,7 @@ Automatic createdAt and updatedAt properties
 Usage
 -----
 
-You must the triats to the Repo and Model classes:
+Add the triats to the Repo and Model classes:
 
 ```php
 use Harp\Harp\AbstractModel;
@@ -21,10 +21,10 @@ class User extends AbstractModel
 {
     use TimestampsTrait;
 
-    public static function initialize($repo)
+    public static function initialize($config)
     {
         // Adds events to populate the properties
-        TimestampsTrait::initialize($repo);
+        TimestampsTrait::initialize($config);
     }
 }
 ```

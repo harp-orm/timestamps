@@ -3,8 +3,8 @@
 namespace Harp\Timestamps;
 
 use DateTime;
-use Harp\Harp\Repo;
-use Harp\Core\Repo\Event;
+use Harp\Harp\Config;
+use Harp\Harp\Repo\Event;
 
 /**
  * @author    Ivan Kerin <ikerin@gmail.com>
@@ -25,7 +25,7 @@ trait TimestampsTrait
         return self::$currentDate ?: date('Y-m-d H:i:s');
     }
 
-    public static function initialize(Repo $repo)
+    public static function initialize(Config $repo)
     {
         $repo
             ->addEventBefore(Event::SAVE, function ($model) {

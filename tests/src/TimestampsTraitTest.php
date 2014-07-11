@@ -3,7 +3,7 @@
 namespace Harp\Timestamps\Test;
 
 use DateTime;
-use Harp\Core\Repo\Event;
+use Harp\Harp\Repo\Event;
 use Harp\Timestamps\TimestampsTrait;
 
 /**

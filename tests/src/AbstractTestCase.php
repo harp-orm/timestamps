@@ -3,7 +3,7 @@
 namespace Harp\Timestamps\Test;
 
 use Harp\Query\DB;
-use Harp\Core\Repo\Container;
+use Harp\Harp\Repo\Container;
 use Harp\Timestamps\TimestampsTrait;
 use PHPUnit_Framework_TestCase;
 
